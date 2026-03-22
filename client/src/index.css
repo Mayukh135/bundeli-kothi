@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital,wght@0,400;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Eco-luxury palette */
+  --background: 38 44% 96%;
+  /* #FAF7F2 - warm ivory */
+  --foreground: 0 0% 11%;
+  /* #1C1C1C - deep charcoal */
+
+  --primary: 93 15% 43%;
+  /* #6B7D5C - muted olive */
+  --primary-foreground: 38 44% 96%;
+
+  --secondary: 40 28% 87%;
+  /* #E8E2D6 - light beige surface */
+  --secondary-foreground: 0 0% 11%;
+
+  --muted: 38 30% 91%;
+  --muted-foreground: 30 10% 35%;
+
+  --accent: 30 34% 49%;
+  /* #A67C52 - warm terracotta */
+  --accent-foreground: 38 44% 96%;
+
+  --highlight: 39 38% 62%;
+  /* #C2A878 - soft gold */
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 39 24% 76%;
+  --input: 39 24% 76%;
+  --ring: 93 15% 43%;
+
+  --radius: 0.25rem;
+
+  --popover: 40 28% 87%;
+  --popover-foreground: 0 0% 11%;
+
+  --card: 40 28% 87%;
+  --card-foreground: 0 0% 11%;
+
+  --font-serif: 'DM Serif Display', serif;
+  --font-sans: 'DM Sans', sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/20;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-medium tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .book-now-motion {
+    @apply transition-[transform,box-shadow,background-color,color] duration-300 ease-out will-change-transform;
+  }
+
+  .book-now-motion:hover {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 10px 24px rgba(28, 28, 28, 0.14);
+  }
+
+  .book-now-motion:active {
+    transform: translateY(0) scale(0.99);
+    box-shadow: 0 4px 14px rgba(28, 28, 28, 0.1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .book-now-motion {
+      transition: none;
+    }
+
+    .book-now-motion:hover,
+    .book-now-motion:active {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-10 md:py-14 lg:py-16;
+  }
+}
