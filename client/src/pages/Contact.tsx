@@ -78,7 +78,7 @@ export default function Contact() {
 
             {/* Map Link */}
             <a
-              href="https://www.google.com/maps/search/?api=1&query=Main+Road,+Maharajpura,+Orchha,+Madhya+Pradesh,+India+472246"
+              href="https://maps.app.goo.gl/EDFmzAgMtywm9iAR8"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full h-[300px] bg-muted rounded-lg overflow-hidden border border-border shadow-inner relative group block"
