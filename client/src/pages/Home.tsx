@@ -247,7 +247,7 @@ export default function Home() {
           </div>
           <div className="mt-10">
             <Link href="/experiences">
-              <Button size="lg" className="bg-accent text-white hover:bg-accent/90 border-none">
+              <Button size="lg" className="bg-[#cd8e2a] text-white hover:bg-[#b57d25] border-none">
                 Discover More Activities
               </Button>
             </Link>
