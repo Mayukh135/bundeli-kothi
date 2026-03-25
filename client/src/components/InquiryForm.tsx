@@ -558,7 +558,7 @@ export function InquiryForm() {
 
           <Button
             type="submit"
-            className="w-full h-14 text-lg font-serif italic bg-primary hover:bg-primary/90 text-white"
+            className="w-full h-14 text-lg [font-family:var(--font-serif)] bg-primary hover:bg-primary/90 text-white"
             disabled={mutation.isPending}
           >
             {mutation.isPending ? (

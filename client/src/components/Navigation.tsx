@@ -94,7 +94,7 @@ export function Navigation() {
             <Button
               onClick={() => setIsInquiryOpen(true)}
               className={cn(
-                "ml-4 font-serif rounded-none px-8 py-2 h-auto text-[16px] book-now-motion",
+                "ml-4 font-serif rounded-full px-8 py-2 h-auto text-[16px] book-now-motion",
                 isSolid
                   ? "bg-primary text-primary-foreground hover:bg-primary/90"
                   : "bg-background text-primary hover:bg-background/90"
@@ -139,7 +139,7 @@ export function Navigation() {
                     })}
                     <Button
                       onClick={openInquiryFromSheet}
-                      className="mt-8 w-full bg-primary text-primary-foreground hover:bg-primary/90 font-serif text-lg py-6 rounded-none book-now-motion"
+                      className="mt-8 w-full bg-primary text-primary-foreground hover:bg-primary/90 font-serif text-lg py-6 rounded-full book-now-motion"
                     >
                       Book Your Stay
                     </Button>
