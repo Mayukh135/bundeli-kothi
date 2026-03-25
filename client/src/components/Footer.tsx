@@ -15,9 +15,21 @@ export function Footer() {
               <a href="https://www.instagram.com/bundelikothi/" target="_blank" rel="noopener noreferrer" className="p-2 bg-foreground/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="https://www.facebook.com/bundelikothi" target="_blank" rel="noopener noreferrer" className="p-2 bg-foreground/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors">
+              <a href="https://www.facebook.com/bundeli.orchha/" target="_blank" rel="noopener noreferrer" className="p-2 bg-foreground/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
+            </div>
+            <div className="grid grid-cols-2 gap-3 max-w-xs">
+              <img
+                src="/images/farmstay.png"
+                alt="Farmstay view"
+                className="w-full h-24 object-cover rounded-md border border-foreground/10"
+              />
+              <img
+                src="/images/MP-best-farmstay.png"
+                alt="MP best farmstay"
+                className="w-full h-24 object-cover rounded-md border border-foreground/10"
+              />
             </div>
           </div>
 
@@ -88,6 +100,16 @@ export function Footer() {
                     Cancellation Policy
                   </span>
                 </Link>
+              </li>
+              <li>
+                <a
+                  href="https://www.booking.com/hotel/in/bundeli-kothi-a-unique-farmstay.html?chal_t=1774461736996&force_referer=https%3A%2F%2Fwww.google.com%2F"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/70 hover:text-primary transition-colors cursor-pointer block"
+                >
+                  bookings.com
+                </a>
               </li>
             </ul>
           </div>
