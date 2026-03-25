@@ -131,7 +131,7 @@ export default function Experiences() {
       <div className="relative h-[60vh] min-h-[500px] flex items-center justify-center">
         <div className="absolute inset-0 overflow-hidden">
           <motion.img
-            src="/images/panna_jungle1.jpg"
+            src="/images/darkgreen-adventures-blog-pictures-4.jpg"
             alt="Experiences in Panna"
             initial={{ scale: 1 }}
             animate={{ scale: 1.15 }}
