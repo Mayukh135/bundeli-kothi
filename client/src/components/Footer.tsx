@@ -32,7 +32,7 @@ export function Footer() {
           {/* Socials & Partners */}
           <div>
             <h4 className="font-serif text-lg mb-6">Our Socials</h4>
-            <div className="flex gap-4">
+            <div className="flex gap-4 flex-wrap">
               <a href="https://www.instagram.com/bundelikothi/" target="_blank" rel="noopener noreferrer" className="p-2 bg-foreground/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
@@ -46,6 +46,22 @@ export function Footer() {
                 className="p-2 bg-foreground/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 <img src="/images/bookings.png" alt="Bookings" className="w-5 h-5 object-contain" />
+              </a>
+              <a
+                href="https://www.goibibo.com/hotels/bundeli-kothi-hotel-in-orchha-4948670906261073155/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-foreground/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
+              >
+                <img src="/images/goibibo.png" alt="Goibibo" className="w-5 h-5 object-contain" />
+              </a>
+              <a
+                href="https://www.makemytrip.com/hotels/bundeli_kothi-details-orchha.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-foreground/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
+              >
+                <img src="/images/makemytrip.png" alt="MakeMyTrip" className="w-5 h-5 object-contain" />
               </a>
             </div>
           </div>
