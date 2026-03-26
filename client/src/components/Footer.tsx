@@ -5,12 +5,33 @@ export function Footer() {
   return (
     <footer className="bg-background text-foreground pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
           {/* Brand */}
           <div className="space-y-6">
             <div>
               <img src="/images/logo.png" alt="Bundeli Kothi Logo" className="h-24 md:h-28 w-auto mb-4 object-contain" />
             </div>
+            <div className="grid grid-cols-2 gap-3 max-w-xs">
+              <div className="h-24 flex items-center justify-center">
+                <img
+                  src="/images/farmstay.png"
+                  alt="Farmstay view"
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+              <div className="h-24 flex items-center justify-center">
+                <img
+                  src="/images/MP-best-farmstay.png"
+                  alt="MP best farmstay"
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Socials & Partners */}
+          <div>
+            <h4 className="font-serif text-lg mb-6">Our Socials and Booking partners</h4>
             <div className="flex gap-4">
               <a href="https://www.instagram.com/bundelikothi/" target="_blank" rel="noopener noreferrer" className="p-2 bg-foreground/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors">
                 <Instagram className="w-5 h-5" />
@@ -26,18 +47,6 @@ export function Footer() {
               >
                 <img src="/images/bookings.png" alt="Bookings" className="w-5 h-5 object-contain" />
               </a>
-            </div>
-            <div className="grid grid-cols-2 gap-3 max-w-xs">
-              <img
-                src="/images/farmstay.png"
-                alt="Farmstay view"
-                className="w-full h-auto object-contain rounded-md"
-              />
-              <img
-                src="/images/MP-best-farmstay.png"
-                alt="MP best farmstay"
-                className="w-full h-auto object-contain rounded-md"
-              />
             </div>
           </div>
 
