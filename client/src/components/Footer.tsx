@@ -39,6 +39,10 @@ export function Footer() {
               <a href="https://www.facebook.com/bundeli.orchha/" target="_blank" rel="noopener noreferrer" className="p-2 bg-foreground/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
+            </div>
+
+            <h4 className="font-serif text-lg mt-8 mb-6">Our Booking Partners</h4>
+            <div className="flex gap-4 flex-wrap">
               <a
                 href="https://www.booking.com/hotel/in/bundeli-kothi-a-unique-farmstay.html?chal_t=1774461736996&force_referer=https%3A%2F%2Fwww.google.com%2F"
                 target="_blank"
