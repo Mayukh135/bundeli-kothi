@@ -11,7 +11,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
 import { CalendarIcon, Loader2 } from "lucide-react";
-import { format } from "date-fns";
+import { format, startOfDay } from "date-fns";
 import { cn } from "@/lib/utils";
 
 const COUNTRY_DIAL_CODES: Record<string, string> = {
@@ -349,7 +349,7 @@ const COUNTRY_OPTIONS = Object.entries(COUNTRY_DIAL_CODES)
     region,
     dialCode,
     countryName: getRegionName(region),
-    label: `${dialCode} - ${getRegionName(region)}`,
+    label: `${getRegionName(region)} (${dialCode})`,
   }))
   .sort((a, b) => a.countryName.localeCompare(b.countryName));
 
@@ -394,6 +394,7 @@ function parseDateValue(value: unknown): Date | null {
 export function InquiryForm() {
   const mutation = useSubmitInquiry();
   const detectedRegion = useMemo(() => detectRegion(), []);
+  const today = useMemo(() => startOfDay(new Date()), []);
   const [selectedRegion, setSelectedRegion] = useState(detectedRegion);
   const selectedDialCode = COUNTRY_DIAL_CODES[selectedRegion] || "+91";
 
@@ -584,7 +585,7 @@ export function InquiryForm() {
                         </SelectTrigger>
                         <SelectContent className="max-h-72 min-w-[220px]">
                           {COUNTRY_OPTIONS.map((option) => (
-                            <SelectItem key={option.region} value={option.region}>
+                            <SelectItem key={option.region} value={option.region} textValue={option.countryName}>
                               {option.label}
                             </SelectItem>
                           ))}
@@ -669,7 +670,7 @@ export function InquiryForm() {
                         selected={field.value || undefined}
                         onSelect={field.onChange}
                         disabled={(date) =>
-                          date < new Date()
+                          startOfDay(date) < today
                         }
                         initialFocus
                       />
@@ -710,9 +711,17 @@ export function InquiryForm() {
                         mode="single"
                         selected={field.value || undefined}
                         onSelect={field.onChange}
-                        disabled={(date) =>
-                          date < new Date()
-                        }
+                        disabled={(date) => {
+                          const checkInDate = parseDateValue(form.getValues("checkIn"));
+                          const checkInStart = checkInDate ? startOfDay(checkInDate) : null;
+                          const currentDate = startOfDay(date);
+
+                          if (checkInStart) {
+                            return currentDate <= checkInStart;
+                          }
+
+                          return currentDate < today;
+                        }}
                         initialFocus
                       />
                     </PopoverContent>
