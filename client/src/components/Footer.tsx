@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
           {/* Brand */}
           <div className="space-y-6">
-            <div>
+            <div className="pl-2">
               <img src="/images/logo.png" alt="Bundeli Kothi Logo" className="h-24 md:h-28 w-auto mb-4 object-contain" />
             </div>
             <div className="grid grid-cols-2 gap-3 max-w-xs">
@@ -31,7 +31,7 @@ export function Footer() {
 
           {/* Socials & Partners */}
           <div>
-            <h4 className="font-serif text-lg mb-6">Our Socials and Booking partners</h4>
+            <h4 className="font-serif text-lg mb-6">Our Socials</h4>
             <div className="flex gap-4">
               <a href="https://www.instagram.com/bundelikothi/" target="_blank" rel="noopener noreferrer" className="p-2 bg-foreground/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors">
                 <Instagram className="w-5 h-5" />
