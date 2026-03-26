@@ -46,15 +46,33 @@ export function useSubmitInquiry() {
 
   return useMutation({
     mutationFn: async (data: InsertInquiry) => {
-      const res = await fetch(api.inquiries.create.path, {
-        method: api.inquiries.create.method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      const controller = new AbortController();
+      const timeoutId = window.setTimeout(() => controller.abort(), 15000);
+
+      let res: Response;
+      try {
+        res = await fetch(api.inquiries.create.path, {
+          method: api.inquiries.create.method,
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+          signal: controller.signal,
+        });
+      } catch (error) {
+        if (error instanceof DOMException && error.name === "AbortError") {
+          throw new Error("Request timed out. Please try again.");
+        }
+        throw new Error("Unable to submit inquiry. Please check your connection and try again.");
+      } finally {
+        window.clearTimeout(timeoutId);
+      }
 
       if (!res.ok) {
-        const error = await res.json();
-        throw new Error(error.message || "Failed to submit inquiry");
+        const contentType = res.headers.get("content-type") || "";
+        if (contentType.includes("application/json")) {
+          const error = await res.json();
+          throw new Error(error.message || "Failed to submit inquiry");
+        }
+        throw new Error("Failed to submit inquiry");
       }
 
       return api.inquiries.create.responses[201].parse(await res.json());
