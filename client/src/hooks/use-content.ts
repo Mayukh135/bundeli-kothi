@@ -47,69 +47,80 @@ export function useSubmitInquiry() {
   return useMutation({
     mutationFn: async (data: InsertInquiry) => {
       const controller = new AbortController();
-      const timeoutId = window.setTimeout(() => controller.abort(), 15000);
+      const timeoutId = window.setTimeout(() => controller.abort(), 10000);
 
-      let res: Response;
-      try {
-        res = await fetch(api.inquiries.create.path, {
-          method: api.inquiries.create.method,
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-          signal: controller.signal,
-        });
-      } catch (error) {
-        if (error instanceof DOMException && error.name === "AbortError") {
-          throw new Error("Request timed out. Please try again.");
+      const apiPromise = (async () => {
+        try {
+          const res = await fetch(api.inquiries.create.path, {
+            method: api.inquiries.create.method,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+            signal: controller.signal,
+          });
+
+          if (!res.ok) {
+            const contentType = res.headers.get("content-type") || "";
+            if (contentType.includes("application/json")) {
+              const error = await res.json();
+              throw new Error(error.message || "Failed to submit inquiry");
+            }
+            throw new Error("Failed to submit inquiry");
+          }
+
+          return api.inquiries.create.responses[201].parse(await res.json());
+        } finally {
+          window.clearTimeout(timeoutId);
         }
-        throw new Error("Unable to submit inquiry. Please check your connection and try again.");
-      } finally {
-        window.clearTimeout(timeoutId);
+      })();
+
+      const [apiResult, emailResult] = await Promise.allSettled([
+        apiPromise,
+        sendInquiryEmails(data),
+      ]);
+
+      const apiSaved = apiResult.status === "fulfilled";
+      const emailSent =
+        emailResult.status === "fulfilled" &&
+        !emailResult.value.skipped &&
+        (emailResult.value.adminSent || emailResult.value.guestSent);
+
+      if (!apiSaved && !emailSent) {
+        if (apiResult.status === "rejected") {
+          throw new Error(apiResult.reason?.message || "Unable to submit inquiry. Please try again.");
+        }
+        throw new Error("Unable to submit inquiry. Please try again.");
       }
 
-      if (!res.ok) {
-        const contentType = res.headers.get("content-type") || "";
-        if (contentType.includes("application/json")) {
-          const error = await res.json();
-          throw new Error(error.message || "Failed to submit inquiry");
-        }
-        throw new Error("Failed to submit inquiry");
-      }
-
-      return api.inquiries.create.responses[201].parse(await res.json());
+      return {
+        apiSaved,
+        emailResult: emailResult.status === "fulfilled" ? emailResult.value : null,
+      };
     },
-    onSuccess: (_response, variables) => {
+    onSuccess: (result) => {
+      if (!result.apiSaved && result.emailResult) {
+        toast({
+          title: "Inquiry Sent",
+          description: "Your inquiry email was sent successfully.",
+          variant: "default",
+        });
+        return;
+      }
+
       toast({
         title: "Inquiry Sent",
         description: "Thank you for reaching out. We will get back to you shortly.",
         variant: "default",
       });
 
-      void sendInquiryEmails(variables)
-        .then((result) => {
-          if (result.skipped) {
-            console.warn(result.errors.join(" | "));
-            return;
-          }
-
-          if (!result.adminSent || !result.guestSent) {
-            console.error(result.errors.join(" | "));
-            toast({
-              title: "Inquiry Saved, Email Pending",
-              description:
-                "Your inquiry was saved, but one or more confirmation emails could not be delivered right now.",
-              variant: "destructive",
-            });
-          }
-        })
-        .catch((error) => {
-          console.error("EmailJS send failure:", error);
-          toast({
-            title: "Inquiry Saved, Email Pending",
-            description:
-              "Your inquiry was saved, but confirmation emails could not be delivered right now.",
-            variant: "destructive",
-          });
+      if (result.emailResult && (!result.emailResult.adminSent || !result.emailResult.guestSent)) {
+        console.error(result.emailResult.errors.join(" | "));
+        toast({
+          title: "Inquiry Saved, Email Pending",
+          description:
+            "Your inquiry was saved, but one or more confirmation emails could not be delivered right now.",
+          variant: "destructive",
         });
+      }
     },
     onError: (error) => {
       toast({
