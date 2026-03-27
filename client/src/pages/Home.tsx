@@ -96,7 +96,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light"
+            className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light text-justify"
           >
             A serene farmstay retreat nestled in the heart of Bundelkhand, near the historic charm of Orchha.
           </motion.p>
@@ -176,7 +176,7 @@ export default function Home() {
           <SectionHeader
             subtitle="Accommodation"
             title="Earth-Walled Luxury"
-            className="[&>h2]:text-primary"
+            className="[&>h2]:text-primary [&>p]:text-justify"
             description="Our independent cottages are crafted from mud and thatch, designed to catch the breeze and blend seamlessly with the surroundings."
           />
 
@@ -220,7 +220,7 @@ export default function Home() {
             subtitle="Experience Orchha"
             title="Adventures in Orchha"
             description="Discover Orchha through royal palaces, sacred temples, river adventures, and rich natural landscapes."
-            className="mx-auto [&>h2]:text-primary"
+            className="mx-auto [&>h2]:text-primary [&>p]:text-justify"
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             {[
@@ -266,7 +266,7 @@ export default function Home() {
           <SectionHeader
             subtitle="Contact Us"
             title="Begin Your Journey"
-            className="[&>h2]:text-primary"
+            className="[&>h2]:text-primary [&>p]:text-justify"
             description="Ready to experience the untamed beauty of Orchha? Send us an inquiry and we will curate your perfect stay."
           />
           <InquiryForm />
