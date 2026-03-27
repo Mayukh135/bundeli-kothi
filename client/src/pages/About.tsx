@@ -165,7 +165,6 @@ export default function About() {
                 key={card.id}
                 cottage={card}
                 index={i}
-                showViewDetails={false}
                 descriptionClassName="text-justify"
               />
             ))}
@@ -187,7 +186,6 @@ export default function About() {
                 key={card.id}
                 cottage={card}
                 index={i}
-                showViewDetails={false}
                 descriptionClassName="text-justify"
               />
             ))}

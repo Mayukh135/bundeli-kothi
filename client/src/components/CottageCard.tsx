@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, Users, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { Users, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { type Cottage } from "@shared/schema";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -8,14 +8,12 @@ import { BedDouble, Maximize } from "lucide-react";
 interface CottageCardProps {
   cottage: Cottage;
   index: number;
-  showViewDetails?: boolean;
   descriptionClassName?: string;
 }
 
 export function CottageCard({
   cottage,
   index,
-  showViewDetails = true,
   descriptionClassName,
 }: CottageCardProps) {
   const bgImage = cottage.imageUrl || "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80";
@@ -101,21 +99,11 @@ export function CottageCard({
           <p
             className={cn(
               "text-muted-foreground mb-4",
-              showViewDetails && "line-clamp-3",
               descriptionClassName,
             )}
           >
             {cottage.description}
           </p>
-
-          {showViewDetails && (
-            <button
-              onClick={() => setShowModal(true)}
-              className="inline-flex items-center gap-2 text-primary font-medium hover:text-accent transition-colors cursor-pointer group/link mt-auto"
-            >
-              View Details <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
-            </button>
-          )}
         </div>
       </motion.div>
 

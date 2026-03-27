@@ -193,7 +193,11 @@ export default function Home() {
                   href={cottage.type === "Sustainability" ? "/about#sustainability" : "/accommodation"}
                   className="block"
                 >
-                  <CottageCard cottage={cottage} index={i} showViewDetails={false} />
+                  <CottageCard
+                    cottage={cottage}
+                    index={i}
+                    descriptionClassName="text-justify"
+                  />
                 </Link>
               ))
             )}
