@@ -49,19 +49,22 @@ export function registerRoutes(
   app.post(api.inquiries.create.path, async (req, res) => {
     try {
       const input = api.inquiries.create.input.parse(req.body);
-      await Promise.race([
+      
+      // Respond immediately to unblock client (EmailJS is handling email)
+      res.status(201).json({ success: true, message: "Inquiry received" });
+      
+      // Save asynchronously in background with timeout
+      Promise.race([
         storage.createInquiry(input),
         new Promise((_, reject) =>
-          setTimeout(() => reject(new Error("Inquiry save timeout")), 12000),
+          setTimeout(() => reject(new Error("Inquiry save timeout")), 8000),
         ),
-      ]);
-      res.status(201).json({ success: true, message: "Inquiry received" });
+      ]).catch(err => {
+        console.error("Failed to save inquiry:", err instanceof Error ? err.message : err);
+      });
     } catch (err) {
       if (err instanceof z.ZodError) {
         return res.status(400).json({ message: "Invalid input data" });
-      }
-      if (err instanceof Error && err.message === "Inquiry save timeout") {
-        return res.status(503).json({ message: "Service temporarily unavailable. Please try again." });
       }
       console.error(err);
       res.status(500).json({ message: "Internal server error" });

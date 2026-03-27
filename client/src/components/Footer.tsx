@@ -8,9 +8,6 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
           {/* Brand */}
           <div className="space-y-6">
-            <div className="pl-2">
-              <img src="/images/logo.png" alt="Bundeli Kothi Logo" className="h-24 md:h-28 w-auto mb-4 object-contain" />
-            </div>
             <div className="grid grid-cols-2 gap-3 max-w-xs">
               <div className="h-24 flex items-center justify-center">
                 <img

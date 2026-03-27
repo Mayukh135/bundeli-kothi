@@ -80,7 +80,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-white/90 text-sm md:text-base uppercase tracking-[0.3em] font-medium mb-6 block"
+            className="text-primary text-sm md:text-base uppercase tracking-[0.3em] font-medium mb-6 block"
           >
             A UNIQUE FARMSTAY
           </motion.span>
@@ -158,7 +158,7 @@ export default function Home() {
               subtitle="Welcome"
               title="A unique Farmstay"
               centered={false}
-              className="mb-6 [&>p]:text-justify"
+              className="mb-6 [&>h2]:text-primary [&>p]:text-justify"
               description="Bundeli Kothi is a serene retreat in Orchha, Madhya Pradesh, spread over five acres of lush greenery. It offers an immersive natural experience, with organic farms, manicured lawns, and peaceful surroundings. Guests can enjoy farm-fresh meals from homegrown fruits, vegetables, and grains. The tranquil ambiance is perfect for relaxation, whether sunbathing or reading under a neem tree. Wake up to the soothing sounds of nature and experience sustainable living at its finest."
             />
             <a href="/about">
@@ -176,6 +176,7 @@ export default function Home() {
           <SectionHeader
             subtitle="Accommodation"
             title="Earth-Walled Luxury"
+            className="[&>h2]:text-primary"
             description="Our independent cottages are crafted from mud and thatch, designed to catch the breeze and blend seamlessly with the surroundings."
           />
 
@@ -215,7 +216,7 @@ export default function Home() {
             subtitle="Experience Orchha"
             title="Adventures in Orchha"
             description="Discover Orchha through royal palaces, sacred temples, river adventures, and rich natural landscapes."
-            className="mx-auto"
+            className="mx-auto [&>h2]:text-primary"
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             {[
@@ -261,6 +262,7 @@ export default function Home() {
           <SectionHeader
             subtitle="Contact Us"
             title="Begin Your Journey"
+            className="[&>h2]:text-primary"
             description="Ready to experience the untamed beauty of Orchha? Send us an inquiry and we will curate your perfect stay."
           />
           <InquiryForm />

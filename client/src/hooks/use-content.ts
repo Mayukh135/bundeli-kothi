@@ -47,7 +47,7 @@ export function useSubmitInquiry() {
   return useMutation({
     mutationFn: async (data: InsertInquiry) => {
       const controller = new AbortController();
-      const timeoutId = window.setTimeout(() => controller.abort(), 10000);
+      const timeoutId = window.setTimeout(() => controller.abort(), 5000);
 
       const apiPromise = (async () => {
         try {

@@ -144,7 +144,7 @@ export default function Accommodation() {
       {/* Amenities Section */}
       <section className="py-8 md:py-10 lg:py-12 bg-muted/30 container-padding">
         <div className="max-w-7xl mx-auto">
-          <SectionHeader subtitle="Comforts" title="Room Amenities" centered className="mb-6" />
+          <SectionHeader subtitle="Comforts" title="Room Amenities" centered className="mb-6 [&>h2]:text-primary" />
 
           <p className="text-justify text-base md:text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto mb-6">
             To enhance your stay, we offer a range of amenities, including complimentary breakfast, an in-room tea and coffee maker, WiFi access, and exclusive access to our private farm. Additionally, power backup ensures uninterrupted comfort throughout your visit. Whether you're looking for a peaceful retreat or an immersive farm experience, our farmstay is the perfect destination.

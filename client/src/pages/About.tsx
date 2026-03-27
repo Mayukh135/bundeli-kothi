@@ -133,7 +133,7 @@ export default function About() {
       {/* Who We Are */}
       <section className="section-padding container-padding">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl [font-family:var(--font-serif)] text-[#CD8E2A] font-bold text-center">
+          <h2 className="text-3xl md:text-4xl font-serif text-[#CD8E2A] font-bold text-center">
             Who are we?
           </h2>
           <div className="w-20 h-1 bg-accent mx-auto mt-4 mb-8" />
