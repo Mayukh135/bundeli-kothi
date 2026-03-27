@@ -35,7 +35,7 @@ export default function Contact() {
           {/* Contact Info */}
           <div className="space-y-12">
             <div>
-              <h2 className="text-3xl font-serif mb-6 text-foreground">Get in Touch</h2>
+              <h2 className="text-3xl font-serif mb-6 text-[#CD8E2A]">Get in Touch</h2>
               <p className="text-muted-foreground text-lg mb-8">
                 Whether you have questions, need assistance, or want more information, our team is here to help.
               </p>

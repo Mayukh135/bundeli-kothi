@@ -132,6 +132,7 @@ export default function Gallery() {
             subtitle="Moments"
             title="Photo Gallery"
             description="Captured moments from Bundeli Kothi."
+            className="[&>h2]:text-[#CD8E2A]"
             centered
           />
 
