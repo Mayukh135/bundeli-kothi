@@ -85,7 +85,7 @@ export default function Contact() {
             >
               {/* Static Map Image */}
               <img
-                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2674&auto=format&fit=crop"
+                src="/images/Screenshot 2026-03-27 at 3.49.06 PM.png"
                 alt="Map Location"
                 className="w-full h-full object-cover filter grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
               />
