@@ -82,7 +82,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-primary text-sm md:text-base uppercase tracking-[0.3em] font-medium mb-6 block"
           >
-            A UNIQUE FARMSTAY
+            A HOSTED EXPERIENCE
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -98,7 +98,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light text-justify"
           >
-            A serene farmstay retreat nestled in the heart of Bundelkhand, near the historic charm of Orchha.
+            A 4-room boutique retreat near Orchha, surrounded by orchards, slow living, and deeply personal hospitality.
           </motion.p>
         </div>
 
@@ -156,10 +156,16 @@ export default function Home() {
           <div>
             <SectionHeader
               subtitle="Welcome"
-              title="A unique Farmstay"
+              title="A Hosted Experience"
               centered={false}
               className="mb-6 [&>h2]:text-primary [&>p]:text-justify"
-              description="Bundeli Kothi is a serene retreat in Orchha, Madhya Pradesh, spread over five acres of lush greenery. It offers an immersive natural experience, with organic farms, manicured lawns, and peaceful surroundings. Guests can enjoy farm-fresh meals from homegrown fruits, vegetables, and grains. The tranquil ambiance is perfect for relaxation, whether sunbathing or reading under a neem tree. Wake up to the soothing sounds of nature and experience sustainable living at its finest."
+              description={`Tucked away in the historic town of Orchha, Bundeli Kothi is a five-acre estate where time slows down.
+
+Our home offers a rare pause between destinations where you can slow down, stay longer, and truly unwind.
+Wake up to birdsong, wander through organic farms, and savour meals crafted from ingredients grown just steps away.
+Spend your afternoons under the shade of neem trees, or simply do nothing at all.
+
+This is not just a stay - it is a gentle return to nature, comfort, and quiet luxury.`}
             />
             <a href="/about">
               <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white px-8 h-12">
@@ -175,9 +181,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <SectionHeader
             subtitle="Accommodation"
-            title="Earth-Walled Luxury"
+            title="Comfort, Space & Quiet Luxury"
             className="[&>h2]:text-primary [&>p]:text-justify"
-            description="Our independent cottages are crafted from mud and thatch, designed to catch the breeze and blend seamlessly with the surroundings."
+            description='"Many of our guests arrive for a night and wish they had stayed longer"'
           />
 
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">

@@ -36,7 +36,7 @@ export function SectionHeader({
       </h2>
       {description && (
         <p className={cn(
-          "text-lg leading-relaxed",
+          "text-lg leading-relaxed whitespace-pre-line",
           light ? "text-white/80" : "text-muted-foreground"
         )}>
           {description}
