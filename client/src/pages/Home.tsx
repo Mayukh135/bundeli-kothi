@@ -67,12 +67,6 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  const goToHero = (index: number) => {
-    if (index === currentImageIndex) return;
-    setHeroDirection(index > currentImageIndex ? 1 : -1);
-    setCurrentImageIndex(index);
-  };
-
   // Show only 2 cottages on home
   const featuredCottages = cottages?.slice(0, 2) || [];
 
@@ -115,16 +109,6 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/30 md:bg-black/20" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
 
-          <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-black/35 backdrop-blur-sm px-3 py-2 rounded-full border border-white/20">
-            {heroImages.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goToHero(i)}
-                className={`rounded-full transition-all ${i === currentImageIndex ? "w-6 h-2 bg-white" : "w-2 h-2 bg-white/60 hover:bg-white/85"}`}
-                aria-label={`Go to hero image ${i + 1}`}
-              />
-            ))}
-          </div>
         </div>
 
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20">
