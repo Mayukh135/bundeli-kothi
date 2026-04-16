@@ -42,28 +42,19 @@ function ActivityImage({ activity }: { activity: Activity }) {
           loading={idx === 0 ? "eager" : "lazy"}
           decoding="async"
           custom={direction}
-          variants={{
-            enter: (dir: number) => ({
-              rotateY: dir > 0 ? 90 : -90,
-              transformOrigin: dir > 0 ? "right center" : "left center",
-              opacity: 0,
-            }),
-            center: (dir: number) => ({
-              rotateY: 0,
-              transformOrigin: dir > 0 ? "right center" : "left center",
-              opacity: 1,
-            }),
-            exit: (dir: number) => ({
-              rotateY: dir > 0 ? -90 : 90,
-              transformOrigin: dir > 0 ? "left center" : "right center",
-              opacity: 0,
-              position: "absolute" as any,
-            }),
-          }}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{ duration: 0.7, ease: "easeInOut" }}
+          initial={(dir: number) => ({
+            opacity: 0,
+            x: dir > 0 ? 60 : -60,
+            scale: 1.08,
+          })}
+          animate={{ opacity: 1, x: 0, scale: 1.02 }}
+          exit={(dir: number) => ({
+            opacity: 0,
+            x: dir > 0 ? -40 : 40,
+            scale: 1.05,
+            position: "absolute" as any,
+          })}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0 w-full h-full object-cover rounded-lg"
           style={{ backfaceVisibility: "hidden" }}
         />

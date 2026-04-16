@@ -21,19 +21,30 @@ export function CottageCard({
   // Carousel logic
   const images = (cottage.images && cottage.images.length > 0) ? cottage.images : [bgImage];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imageDirection, setImageDirection] = useState(1);
   const [showModal, setShowModal] = useState(false);
   const [guests, setGuests] = useState(1);
 
   const nextImage = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    setImageDirection(1);
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
   };
 
   const prevImage = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    setImageDirection(-1);
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const goToImage = (e: React.MouseEvent, index: number) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (index === currentImageIndex) return;
+    setImageDirection(index > currentImageIndex ? 1 : -1);
+    setCurrentImageIndex(index);
   };
 
   const currentImage = images[currentImageIndex];
@@ -48,13 +59,21 @@ export function CottageCard({
         className="group relative bg-card rounded-lg overflow-hidden border border-border/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
       >
         <div className="aspect-[4/3] overflow-hidden relative group/carousel">
-          <img
-            src={currentImage}
-            alt={cottage.name}
-            loading="lazy"
-            decoding="async"
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          />
+          <AnimatePresence initial={false} custom={imageDirection}>
+            <motion.img
+              key={currentImageIndex}
+              src={currentImage}
+              alt={cottage.name}
+              loading="lazy"
+              decoding="async"
+              custom={imageDirection}
+              initial={(dir: number) => ({ opacity: 0, x: dir > 0 ? 40 : -40, scale: 1.08 })}
+              animate={{ opacity: 1, x: 0, scale: 1.02 }}
+              exit={(dir: number) => ({ opacity: 0, x: dir > 0 ? -30 : 30, scale: 1.04 })}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </AnimatePresence>
 
           {/* Carousel Controls */}
           {images.length > 1 && (
@@ -77,9 +96,11 @@ export function CottageCard({
               {/* Dots */}
               <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
                 {images.map((_, i) => (
-                  <div
+                  <button
                     key={i}
+                    onClick={(e) => goToImage(e, i)}
                     className={`w-1.5 h-1.5 rounded-full transition-colors ${i === currentImageIndex ? 'bg-white scale-125' : 'bg-white/50'}`}
+                    aria-label={`Go to cottage image ${i + 1}`}
                   />
                 ))}
               </div>

@@ -5,9 +5,9 @@ import { CottageCard } from "@/components/CottageCard";
 import { InquiryForm } from "@/components/InquiryForm";
 import { useCottages } from "@/hooks/use-content";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "wouter";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const heroImages = [
@@ -21,6 +21,7 @@ export default function Home() {
 
   // Hero carousel state
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [heroDirection, setHeroDirection] = useState(1);
 
   // Bird photo carousel state
   const birdImages = [
@@ -30,12 +31,28 @@ export default function Home() {
     { src: "/images/a-unique-farmstay/jijijijij.jpg", alt: "A Unique Farmstay view 4" },
   ];
   const [birdIndex, setBirdIndex] = useState(0);
-  const prevBird = (e: React.MouseEvent) => { e.stopPropagation(); setBirdIndex((prev) => (prev - 1 + birdImages.length) % birdImages.length); };
-  const nextBird = (e: React.MouseEvent) => { e.stopPropagation(); setBirdIndex((prev) => (prev + 1) % birdImages.length); };
+  const [birdDirection, setBirdDirection] = useState(1);
+  const prevBird = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setBirdDirection(-1);
+    setBirdIndex((prev) => (prev - 1 + birdImages.length) % birdImages.length);
+  };
+  const nextBird = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setBirdDirection(1);
+    setBirdIndex((prev) => (prev + 1) % birdImages.length);
+  };
+  const goToBird = (e: React.MouseEvent, index: number) => {
+    e.stopPropagation();
+    if (index === birdIndex) return;
+    setBirdDirection(index > birdIndex ? 1 : -1);
+    setBirdIndex(index);
+  };
 
   // Bird carousel auto-rotation every 4 seconds
   useEffect(() => {
     const interval = setInterval(() => {
+      setBirdDirection(1);
       setBirdIndex((prev) => (prev + 1) % birdImages.length);
     }, 4000);
     return () => clearInterval(interval);
@@ -44,10 +61,27 @@ export default function Home() {
   // Carousel timer - change image every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
+      setHeroDirection(1);
       setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  const goToHero = (index: number) => {
+    if (index === currentImageIndex) return;
+    setHeroDirection(index > currentImageIndex ? 1 : -1);
+    setCurrentImageIndex(index);
+  };
+
+  const prevHero = () => {
+    setHeroDirection(-1);
+    setCurrentImageIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  };
+
+  const nextHero = () => {
+    setHeroDirection(1);
+    setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+  };
 
   // Show only 2 cottages on home
   const featuredCottages = cottages?.slice(0, 2) || [];
@@ -59,23 +93,64 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[88svh] min-h-[560px] md:h-screen md:min-h-[700px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          {/* Carousel background images */}
-          {heroImages.map((img, index) => (
+          {/* Cinematic hero slider */}
+          <AnimatePresence initial={false} custom={heroDirection}>
             <motion.img
-              key={img}
-              src={img}
-              alt={`Bundeli Kothi Landscape ${index + 1}`}
-              loading={index === 0 ? "eager" : "lazy"}
-              fetchPriority={index === 0 ? "high" : "auto"}
+              key={currentImageIndex}
+              src={heroImages[currentImageIndex]}
+              alt={`Bundeli Kothi Landscape ${currentImageIndex + 1}`}
+              loading={currentImageIndex === 0 ? "eager" : "lazy"}
+              fetchPriority={currentImageIndex === 0 ? "high" : "auto"}
               decoding="async"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: index === currentImageIndex ? 1 : 0 }}
-              transition={{ duration: 1.5 }} // Smooth 1.5s crossfade
+              custom={heroDirection}
+              initial={(direction: number) => ({
+                opacity: 0,
+                x: direction > 0 ? 80 : -80,
+                scale: 1.08,
+              })}
+              animate={{
+                opacity: 1,
+                x: 0,
+                scale: 1.02,
+              }}
+              exit={(direction: number) => ({
+                opacity: 0,
+                x: direction > 0 ? -60 : 60,
+                scale: 1.04,
+              })}
+              transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
               className="absolute inset-0 w-full h-full object-cover"
             />
-          ))}
+          </AnimatePresence>
           <div className="absolute inset-0 bg-black/30 md:bg-black/20" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+
+          <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 bg-black/35 backdrop-blur-sm px-3 py-2 rounded-full border border-white/20">
+            <button
+              onClick={prevHero}
+              className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors"
+              aria-label="Previous hero image"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <div className="flex items-center gap-2">
+              {heroImages.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => goToHero(i)}
+                  className={`rounded-full transition-all ${i === currentImageIndex ? "w-6 h-2 bg-white" : "w-2 h-2 bg-white/60 hover:bg-white/85"}`}
+                  aria-label={`Go to hero image ${i + 1}`}
+                />
+              ))}
+            </div>
+            <button
+              onClick={nextHero}
+              className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors"
+              aria-label="Next hero image"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20">
@@ -121,7 +196,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white animate-bounce"
+          className="absolute bottom-24 md:bottom-20 left-1/2 -translate-x-1/2 text-white animate-bounce"
         >
           <ArrowRight className="rotate-90 w-6 h-6" />
         </motion.div>
@@ -133,14 +208,21 @@ export default function Home() {
           <div className="relative p-4">
             {/* Bird photo carousel */}
             <div className="aspect-[16/10] rounded-lg shadow-2xl relative z-10 border-4 border-accent/20 box-border group overflow-hidden">
-              <img
-                key={birdIndex}
-                src={birdImages[birdIndex].src}
-                alt={birdImages[birdIndex].alt}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover transition-all duration-700"
-              />
+              <AnimatePresence initial={false} custom={birdDirection}>
+                <motion.img
+                  key={birdIndex}
+                  src={birdImages[birdIndex].src}
+                  alt={birdImages[birdIndex].alt}
+                  loading="lazy"
+                  decoding="async"
+                  custom={birdDirection}
+                  initial={(direction: number) => ({ opacity: 0, x: direction > 0 ? 40 : -40, scale: 1.06 })}
+                  animate={{ opacity: 1, x: 0, scale: 1.01 }}
+                  exit={(direction: number) => ({ opacity: 0, x: direction > 0 ? -30 : 30, scale: 1.03 })}
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </AnimatePresence>
               {/* Prev button */}
               <button
                 onClick={prevBird}
@@ -162,7 +244,7 @@ export default function Home() {
                 {birdImages.map((_, i) => (
                   <button
                     key={i}
-                    onClick={(e) => { e.stopPropagation(); setBirdIndex(i); }}
+                    onClick={(e) => goToBird(e, i)}
                     className={`w-1.5 h-1.5 rounded-full transition-all ${i === birdIndex ? 'bg-white scale-125' : 'bg-white/50'}`}
                     aria-label={`Go to bird image ${i + 1}`}
                   />
