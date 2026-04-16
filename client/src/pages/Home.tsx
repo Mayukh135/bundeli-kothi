@@ -194,7 +194,7 @@ This is not just a stay - it is a gentle return to nature, comfort, and quiet lu
           <SectionHeader
             subtitle="Accommodation"
             title="Comfort, Space & Quiet Luxury"
-            className="[&>h2]:text-primary [&>p]:text-justify"
+            className="[&>h2]:text-primary [&>p]:text-center"
             description='"Many of our guests arrive for a night and wish they had stayed longer"'
           />
 
