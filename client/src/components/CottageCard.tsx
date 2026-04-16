@@ -59,14 +59,14 @@ export function CottageCard({
             <>
               <button
                 onClick={prevImage}
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 p-1.5 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity z-20 cursor-pointer"
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/45 hover:bg-black/60 w-11 h-11 md:w-auto md:h-auto p-1.5 rounded-full text-white opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-20 cursor-pointer"
                 aria-label="Previous image"
               >
                 <ChevronLeft size={20} />
               </button>
               <button
                 onClick={nextImage}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 p-1.5 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity z-20 cursor-pointer"
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/45 hover:bg-black/60 w-11 h-11 md:w-auto md:h-auto p-1.5 rounded-full text-white opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-20 cursor-pointer"
                 aria-label="Next image"
               >
                 <ChevronRight size={20} />

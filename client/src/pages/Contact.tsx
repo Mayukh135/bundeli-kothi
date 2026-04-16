@@ -25,7 +25,7 @@ export default function Contact() {
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="text-5xl md:text-6xl font-serif mb-4">Contact Us</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto text-white/90">
-            We'd love to hear from you. Plan your escape to the wild today.
+            “Need help planning your stay? We’re happy to assist.”
           </p>
         </div>
       </div>
@@ -37,29 +37,16 @@ export default function Contact() {
             <div>
               <h2 className="text-3xl font-serif mb-6 text-[#CD8E2A]">Get in Touch</h2>
               <p className="text-muted-foreground text-lg mb-8">
-                Whether you have questions, need assistance, or want more information, our team is here to help.
+                Whether you have questions, need assistance or want more information - we are here to help.
               </p>
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="bg-secondary p-3 rounded-full text-primary">
-                    <MapPin className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-foreground mb-1">Location</h3>
-                    <p className="text-muted-foreground">
-                      Main Road, Maharajpura, Orchha,<br />
-                      Madhya Pradesh, India 472246
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-secondary p-3 rounded-full text-primary">
                     <Phone className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-foreground mb-1">Phone</h3>
+                    <h3 className="font-bold text-foreground mb-1">Call or Whatsapp</h3>
                     <p className="text-muted-foreground">+91 87563 98160</p>
                   </div>
                 </div>
@@ -71,6 +58,19 @@ export default function Contact() {
                   <div>
                     <h3 className="font-bold text-foreground mb-1">Email</h3>
                     <p className="text-muted-foreground">bundelikothi@gmail.com</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="bg-secondary p-3 rounded-full text-primary">
+                    <MapPin className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-foreground mb-1">Address</h3>
+                    <p className="text-muted-foreground">
+                      Main Road, Maharajpura, Orchha,<br />
+                      Madhya Pradesh, India 472246
+                    </p>
                   </div>
                 </div>
               </div>

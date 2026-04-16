@@ -73,14 +73,14 @@ function ActivityImage({ activity }: { activity: Activity }) {
           {/* Prev / Next */}
           <button
             onClick={prev}
-            className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-full w-9 h-9 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10"
+            className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 bg-black/45 hover:bg-black/70 text-white rounded-full w-11 h-11 md:w-9 md:h-9 flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10"
             aria-label="Previous"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={next}
-            className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-full w-9 h-9 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10"
+            className="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 bg-black/45 hover:bg-black/70 text-white rounded-full w-11 h-11 md:w-9 md:h-9 flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10"
             aria-label="Next"
           >
             <ChevronRight className="w-5 h-5" />
@@ -128,7 +128,7 @@ export default function Experiences() {
       <Navigation />
 
       {/* Page Header */}
-      <div className="relative h-[60vh] min-h-[500px] flex items-center justify-center">
+      <div className="relative h-[52vh] min-h-[380px] md:h-[60vh] md:min-h-[500px] flex items-center justify-center">
         <div className="absolute inset-0 overflow-hidden">
           <motion.img
             src="/images/darkgreen-adventures-blog-pictures-4.jpg"
@@ -141,7 +141,7 @@ export default function Experiences() {
           <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-5xl md:text-6xl font-serif mb-4">Majestic Orchha</h1>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif mb-4">Majestic Orchha</h1>
           <div className="max-w-5xl mx-auto space-y-3">
             <p className="text-base md:text-lg text-white/90 text-justify">
               Immerse yourself in the landscape of Orchha.

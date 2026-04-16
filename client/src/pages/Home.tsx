@@ -57,7 +57,7 @@ export default function Home() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[88svh] min-h-[560px] md:h-screen md:min-h-[700px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           {/* Carousel background images */}
           {heroImages.map((img, index) => (
@@ -88,7 +88,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-8 leading-tight"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 md:mb-8 leading-tight"
           >
             Bundeli Kothi
           </motion.h1>
@@ -96,10 +96,22 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light text-justify"
+            className="text-white/85 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 md:mb-10 font-light text-center md:text-justify"
           >
             A 4-room boutique retreat near Orchha, surrounded by orchards, slow living, and deeply personal hospitality.
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="w-full max-w-sm mx-auto"
+          >
+            <a href="#booking" className="block w-full">
+              <Button className="w-full h-14 text-base md:text-lg bg-primary text-primary-foreground hover:bg-primary/90 book-now-motion">
+                Plan your Stay
+              </Button>
+            </a>
+          </motion.div>
         </div>
 
         <motion.div
@@ -127,7 +139,7 @@ export default function Home() {
               {/* Prev button */}
               <button
                 onClick={prevBird}
-                className="absolute left-3 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/70 text-white rounded-full w-9 h-9 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-xl font-bold"
+                className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 z-20 bg-black/45 hover:bg-black/70 text-white rounded-full w-11 h-11 md:w-9 md:h-9 flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity text-xl font-bold"
                 aria-label="Previous bird image"
               >
                 &#8249;
@@ -135,7 +147,7 @@ export default function Home() {
               {/* Next button */}
               <button
                 onClick={nextBird}
-                className="absolute right-3 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/70 text-white rounded-full w-9 h-9 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-xl font-bold"
+                className="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 z-20 bg-black/45 hover:bg-black/70 text-white rounded-full w-11 h-11 md:w-9 md:h-9 flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity text-xl font-bold"
                 aria-label="Next bird image"
               >
                 &#8250;
@@ -223,7 +235,7 @@ This is not just a stay - it is a gentle return to nature, comfort, and quiet lu
         </div>
         <div className="relative z-10 container-padding max-w-7xl mx-auto text-center">
           <SectionHeader
-            subtitle="Experience Orchha"
+            subtitle="Explore Orchha"
             title="Adventures in Orchha"
             description="Discover Orchha through royal palaces, sacred temples, river adventures, and rich natural landscapes."
             className="mx-auto [&>h2]:text-primary [&>p]:text-justify"

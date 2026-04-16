@@ -16,9 +16,9 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/accommodation", label: "Accommodation" },
-  { href: "/experiences", label: "Experience Orchha" },
+  { href: "/experiences", label: "Explore Orchha" },
   { href: "/gallery", label: "Gallery" },
-  { href: "/about", label: "About Us" },
+  { href: "/about", label: "Our Story" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -119,8 +119,8 @@ export function Navigation() {
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="bg-background border-l-border w-[300px] p-0">
-                <div className="flex flex-col h-full pt-20 px-8">
+              <SheetContent side="right" className="bg-background border-l-border w-[86vw] max-w-[320px] p-0">
+                <div className="flex flex-col h-full pt-20 px-6">
                   <nav className="flex flex-col gap-6">
                     {NAV_LINKS.map((link) => {
                       const isActive = location === link.href;
@@ -139,9 +139,9 @@ export function Navigation() {
                     })}
                     <Button
                       onClick={openInquiryFromSheet}
-                      className="mt-8 w-full bg-primary text-primary-foreground hover:bg-primary/90 font-serif text-lg py-6 rounded-md book-now-motion"
+                      className="mt-8 w-full h-14 bg-primary text-primary-foreground hover:bg-primary/90 font-serif text-lg rounded-md book-now-motion"
                     >
-                      Book Your Stay
+                      Plan your Stay
                     </Button>
                   </nav>
 

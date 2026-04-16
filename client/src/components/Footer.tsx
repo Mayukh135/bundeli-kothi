@@ -74,7 +74,7 @@ export function Footer() {
               {[
                 { label: "Our Story", href: "/about" },
                 { label: "Accommodation", href: "/accommodation" },
-                { label: "Experience Orchha", href: "/experiences" },
+                { label: "Explore Orchha", href: "/experiences" },
                 { label: "Gallery", href: "/gallery" },
               ].map((link) => (
                 <li key={link.label}>
