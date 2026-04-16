@@ -521,10 +521,10 @@ export function InquiryForm() {
   return (
     <div className="bg-white p-8 md:p-10 rounded-xl shadow-lg border border-border/50">
       <div className="mb-8">
-        <h3 className="text-2xl font-serif mb-2 text-[#CD8E2A]">Make an Inquiry</h3>
+        <h3 className="text-2xl font-serif mb-2 text-[#CD8E2A]">Plan Your Stay</h3>
         <p className="text-muted-foreground">Fill out the form below and we'll get back to you with availability.</p>
         <p className="text-sm text-muted-foreground mt-2">
-          Prefer to call?{" "}
+          Prefer to call or Whatsapp?{" "}
           <a href="tel:+918756398160" className="text-primary font-medium underline underline-offset-2 hover:text-primary/80">
             +91 87563 98160
           </a>

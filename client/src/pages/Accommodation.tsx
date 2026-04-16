@@ -174,7 +174,7 @@ export default function Accommodation() {
       <Dialog open={isInquiryOpen} onOpenChange={setIsInquiryOpen}>
         <DialogContent className="w-[95vw] max-w-3xl border-none bg-transparent p-0 shadow-none">
           <DialogHeader className="sr-only">
-            <DialogTitle>Make an Inquiry</DialogTitle>
+            <DialogTitle>Plan Your Stay</DialogTitle>
             <DialogDescription>Fill out the form and we will get back to you with availability.</DialogDescription>
           </DialogHeader>
           <div className="max-h-[86vh] overflow-y-auto p-1 sm:p-2">
