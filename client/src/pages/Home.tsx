@@ -65,6 +65,9 @@ export default function Home() {
               key={img}
               src={img}
               alt={`Bundeli Kothi Landscape ${index + 1}`}
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "auto"}
+              decoding="async"
               initial={{ opacity: 0 }}
               animate={{ opacity: index === currentImageIndex ? 1 : 0 }}
               transition={{ duration: 1.5 }} // Smooth 1.5s crossfade
@@ -134,6 +137,8 @@ export default function Home() {
                 key={birdIndex}
                 src={birdImages[birdIndex].src}
                 alt={birdImages[birdIndex].alt}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover transition-all duration-700"
               />
               {/* Prev button */}
@@ -230,6 +235,8 @@ This is not just a stay - it is a gentle return to nature, comfort, and quiet lu
           <img
             src="https://images.unsplash.com/photo-1505553877995-1f92e850b297?q=80&w=2692&auto=format&fit=crop"
             alt="Orchha heritage landscape"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
           />
         </div>
@@ -257,7 +264,7 @@ This is not just a stay - it is a gentle return to nature, comfort, and quiet lu
                 <Link href={item.link} className="block p-8 w-full h-full cursor-pointer focus:outline-none">
                   <div className="mb-4 group-hover:scale-110 group-active:scale-110 transition-transform duration-300">
                     {item.image ? (
-                      <img src={item.image} alt={item.title} className="w-20 h-20 object-cover rounded-lg mx-auto shadow-md" />
+                      <img src={item.image} alt={item.title} loading="lazy" decoding="async" className="w-20 h-20 object-cover rounded-lg mx-auto shadow-md" />
                     ) : (
                       <div className="text-4xl">{item.icon}</div>
                     )}

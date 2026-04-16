@@ -62,6 +62,9 @@ export default function Accommodation() {
             key={heroIndex}
             src={heroImages[heroIndex].src}
             alt={heroImages[heroIndex].alt}
+            loading={heroIndex === 0 ? "eager" : "lazy"}
+            fetchPriority={heroIndex === 0 ? "high" : "auto"}
+            decoding="async"
             custom={direction}
             variants={{
               enter: (dir: number) => ({

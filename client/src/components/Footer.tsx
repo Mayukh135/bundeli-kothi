@@ -13,6 +13,8 @@ export function Footer() {
                 <img
                   src="/images/farmstay.png"
                   alt="Farmstay view"
+                  loading="lazy"
+                  decoding="async"
                   className="max-w-full max-h-full object-contain"
                 />
               </div>
@@ -20,6 +22,8 @@ export function Footer() {
                 <img
                   src="/images/MP-best-farmstay.png"
                   alt="MP best farmstay"
+                  loading="lazy"
+                  decoding="async"
                   className="max-w-full max-h-full object-contain"
                 />
               </div>
@@ -46,7 +50,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="p-2 bg-foreground/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
               >
-                <img src="/images/bookings.png" alt="Bookings" className="w-5 h-5 object-contain" />
+                <img src="/images/bookings.png" alt="Bookings" loading="lazy" decoding="async" className="w-5 h-5 object-contain" />
               </a>
               <a
                 href="https://www.goibibo.com/hotels/bundeli-kothi-hotel-in-orchha-4948670906261073155/"
@@ -54,7 +58,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="p-2 bg-foreground/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
               >
-                <img src="/images/goibibo.png" alt="Goibibo" className="w-5 h-5 object-contain" />
+                <img src="/images/goibibo.png" alt="Goibibo" loading="lazy" decoding="async" className="w-5 h-5 object-contain" />
               </a>
               <a
                 href="https://www.makemytrip.com/hotels/bundeli_kothi-details-orchha.html"
@@ -62,7 +66,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="p-2 bg-foreground/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
               >
-                <img src="/images/makemytrip.png" alt="MakeMyTrip" className="w-5 h-5 object-contain" />
+                <img src="/images/makemytrip.png" alt="MakeMyTrip" loading="lazy" decoding="async" className="w-5 h-5 object-contain" />
               </a>
             </div>
           </div>

@@ -15,6 +15,9 @@ export default function Contact() {
           <motion.img
             src="/images/bgcover.png"
             alt="Contact Us"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             initial={{ scale: 1 }}
             animate={{ scale: 1.15 }}
             transition={{ duration: 20, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
@@ -87,6 +90,8 @@ export default function Contact() {
               <img
                 src="/images/Screenshot 2026-03-27 at 3.49.06 PM.png"
                 alt="Map Location"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover filter grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
               />
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

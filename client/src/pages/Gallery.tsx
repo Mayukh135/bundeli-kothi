@@ -112,6 +112,9 @@ export default function Gallery() {
         <motion.img
           src="/images/bgcover.png"
           alt="Gallery header"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
           initial={{ scale: 1.06 }}
           animate={{ scale: 1.14 }}
@@ -153,6 +156,7 @@ export default function Gallery() {
                     src={image.src}
                     alt={image.alt}
                     loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
@@ -199,6 +203,7 @@ export default function Gallery() {
               key={activeImage.src}
               src={activeImage.src}
               alt={activeImage.alt}
+              decoding="async"
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}

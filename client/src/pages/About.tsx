@@ -121,6 +121,9 @@ export default function About() {
           <motion.img
             src="/images/bgcover.png"
             alt="About Us"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             initial={{ scale: 1 }}
             animate={{ scale: 1.15 }}
             transition={{ duration: 20, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
@@ -142,6 +145,8 @@ export default function About() {
             <img
               src="/images/who-we-are-section.jpg"
               alt="Bundeli Kothi farm to plate"
+              loading="lazy"
+              decoding="async"
               className="w-full h-80 md:h-[420px] object-cover mb-6"
             />
             <p className="text-muted-foreground text-sm md:text-base leading-relaxed text-justify">

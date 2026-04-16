@@ -39,6 +39,8 @@ function ActivityImage({ activity }: { activity: Activity }) {
           key={idx}
           src={images[idx]}
           alt={activity.title}
+          loading={idx === 0 ? "eager" : "lazy"}
+          decoding="async"
           custom={direction}
           variants={{
             enter: (dir: number) => ({
@@ -133,6 +135,9 @@ export default function Experiences() {
           <motion.img
             src="/images/darkgreen-adventures-blog-pictures-4.jpg"
             alt="Experiences in Panna"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             initial={{ scale: 1 }}
             animate={{ scale: 1.15 }}
             transition={{ duration: 20, ease: "linear", repeat: Infinity, repeatType: "reverse" }}

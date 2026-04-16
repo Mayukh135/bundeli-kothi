@@ -63,6 +63,9 @@ export function Navigation() {
               <img
                 src="/images/logo.png"
                 alt="Bundeli Kothi Logo"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 className="h-20 w-20 md:h-24 md:w-24 object-contain transition-all duration-500 opacity-100"
               />
             </div>
