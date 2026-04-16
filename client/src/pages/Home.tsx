@@ -5,7 +5,7 @@ import { CottageCard } from "@/components/CottageCard";
 import { InquiryForm } from "@/components/InquiryForm";
 import { useCottages } from "@/hooks/use-content";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -73,16 +73,6 @@ export default function Home() {
     setCurrentImageIndex(index);
   };
 
-  const prevHero = () => {
-    setHeroDirection(-1);
-    setCurrentImageIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
-  };
-
-  const nextHero = () => {
-    setHeroDirection(1);
-    setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-  };
-
   // Show only 2 cottages on home
   const featuredCottages = cottages?.slice(0, 2) || [];
 
@@ -125,31 +115,15 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/30 md:bg-black/20" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
 
-          <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 bg-black/35 backdrop-blur-sm px-3 py-2 rounded-full border border-white/20">
-            <button
-              onClick={prevHero}
-              className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors"
-              aria-label="Previous hero image"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <div className="flex items-center gap-2">
-              {heroImages.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => goToHero(i)}
-                  className={`rounded-full transition-all ${i === currentImageIndex ? "w-6 h-2 bg-white" : "w-2 h-2 bg-white/60 hover:bg-white/85"}`}
-                  aria-label={`Go to hero image ${i + 1}`}
-                />
-              ))}
-            </div>
-            <button
-              onClick={nextHero}
-              className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors"
-              aria-label="Next hero image"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
+          <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-black/35 backdrop-blur-sm px-3 py-2 rounded-full border border-white/20">
+            {heroImages.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goToHero(i)}
+                className={`rounded-full transition-all ${i === currentImageIndex ? "w-6 h-2 bg-white" : "w-2 h-2 bg-white/60 hover:bg-white/85"}`}
+                aria-label={`Go to hero image ${i + 1}`}
+              />
+            ))}
           </div>
         </div>
 
