@@ -45,6 +45,11 @@ export function Navigation() {
     setTimeout(() => setIsInquiryOpen(true), 150);
   };
 
+  const openInquiryDialog = () => {
+    setIsSheetOpen(false);
+    setIsInquiryOpen(true);
+  };
+
   return (
     <>
       <header
@@ -159,6 +164,15 @@ export function Navigation() {
           </div>
         </div>
       </header>
+
+      <div className="lg:hidden fixed bottom-4 left-4 right-4 z-40 pointer-events-none">
+        <Button
+          onClick={openInquiryDialog}
+          className="pointer-events-auto w-full h-14 bg-primary text-primary-foreground hover:bg-primary/90 font-serif text-lg rounded-md shadow-lg book-now-motion"
+        >
+          Plan your Stay
+        </Button>
+      </div>
 
       <Dialog open={isInquiryOpen} onOpenChange={setIsInquiryOpen}>
         <DialogContent className="w-[95vw] max-w-3xl border-none bg-transparent p-0 shadow-none">

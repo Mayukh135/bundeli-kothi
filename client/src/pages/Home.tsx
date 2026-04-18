@@ -136,18 +136,6 @@ export default function Home() {
           >
             A 4-room boutique retreat near Orchha, surrounded by orchards, slow living, and deeply personal hospitality.
           </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="w-full max-w-sm mx-auto"
-          >
-            <a href="#booking" className="block w-full">
-              <Button className="w-full h-14 text-base md:text-lg bg-primary text-primary-foreground hover:bg-primary/90 book-now-motion">
-                Plan your Stay
-              </Button>
-            </a>
-          </motion.div>
         </div>
 
         <motion.div
