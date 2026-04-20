@@ -107,16 +107,30 @@ export const STATIC_COTTAGES = [
 export const STATIC_TESTIMONIALS = [
     {
         id: 1,
-        name: "Sarah Jenkins",
-        content: "An absolute gem! Raghu and Joanna are wonderful hosts. The food is incredible and the location is pure magic.",
+        name: "N M",
+        content: "We spent two nights at this amazing gem of a place. We could have spent an entire week or more at this serene haven.",
         rating: 5,
-        location: "London, UK",
+        location: "Google Review - Couple",
     },
     {
         id: 2,
-        name: "Amit Patel",
-        content: "The most peaceful place we've stayed in India. The cottages are beautiful and eco-friendly without compromising on comfort.",
+        name: "Prof. Sumita Srivastava",
+        content: "We stayed at Bundeli Kothi for one night, and it turned out to be a truly wonderful experience. The place offers a perfect blend of high standards and homely comfort.",
         rating: 5,
-        location: "Mumbai, India",
+        location: "Google Review - Friends",
+    },
+    {
+        id: 3,
+        name: "Cristina Ricci",
+        content: "Our stay at Bundeli Kothi was truly memorable and one of the highlights of our India tour. The property is peaceful, beautifully maintained, and surrounded by nature.",
+        rating: 5,
+        location: "Google Review - Family",
+    },
+    {
+        id: 4,
+        name: "Alvaro",
+        content: "Our stay at Bundeli Kothi was wonderful from the moment we walked through the door until we left. The house is beautiful, the rooms are large and very comfortable.",
+        rating: 5,
+        location: "Google Review - Couple",
     },
 ];

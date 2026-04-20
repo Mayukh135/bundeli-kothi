@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { SectionHeader } from "@/components/SectionHeader";
 import { CottageCard } from "@/components/CottageCard";
 import { InquiryForm } from "@/components/InquiryForm";
-import { useCottages } from "@/hooks/use-content";
+import { useCottages, useTestimonials } from "@/hooks/use-content";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
@@ -18,6 +18,8 @@ const heroImages = [
 
 export default function Home() {
   const { data: cottages, isLoading: cottagesLoading } = useCottages();
+  const { data: testimonials, isLoading: testimonialsLoading } = useTestimonials();
+  const googleReviewsUrl = "https://www.google.com/travel/search?q=google%20maps%20bundeli%20kothi&g2lb=4965990%2C72471280%2C72560029%2C72573224%2C72647020%2C72686036%2C72803964%2C72882230%2C72958624%2C73059275%2C73064764%2C121529349&hl=en-IN&gl=in&cs=1&ssta=1&ts=CAEaRwopEicyJTB4Mzk3Nzc5OTlkNzI4NmNkZDoweDQ0OWQ2YWI3OTI5MjQxZDQSGhIUCgcI6g8QCBgBEgcI6g8QCBgCGAEyAhAA&qs=CAEyE0Nnb0kxSVBKbFBuVzJzNUVFQUU4AkIJCdRBkpK3ap1EQgkJ1EGSkrdqnUQ&ap=ugEHcmV2aWV3cw&ictx=111&ved=0CAAQ5JsGahcKEwjIqsbvsP2TAxUAAAAAHQAAAAAQDg";
 
   // Hero carousel state
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -293,6 +295,49 @@ This is not just a stay - it is a gentle return to nature, comfort, and quiet lu
                 />
               </Link>
             ) : null}
+          </div>
+        </div>
+      </section>
+
+      {/* Guest Reviews */}
+      <section className="section-padding container-padding bg-muted/30">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader
+            subtitle="Reviews"
+            title="Why Guests Fall in Love With Bundeli Kothi"
+            className="[&>h2]:text-primary [&>p]:text-center"
+            description="Stories from guests who found more than a stay at Bundeli Kothi."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {testimonialsLoading ? (
+              [1, 2].map((i) => (
+                <div key={i} className="h-56 bg-gray-200 animate-pulse rounded-lg" />
+              ))
+            ) : (
+              testimonials?.slice(0, 2).map((testimonial) => (
+                <div
+                  key={testimonial.id}
+                  className="bg-white rounded-lg border border-border/70 shadow-sm p-8 flex flex-col justify-between"
+                >
+                  <p className="text-muted-foreground text-justify leading-relaxed mb-6">
+                    "{testimonial.content}"
+                  </p>
+                  <div>
+                    <p className="font-serif text-lg text-foreground">{testimonial.name}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+
+          <div className="mt-10 text-center">
+            <a href={googleReviewsUrl} target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white px-8 h-12">
+                Read All Reviews on Google
+              </Button>
+            </a>
           </div>
         </div>
       </section>
