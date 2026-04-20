@@ -67,8 +67,8 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  // Show only 2 cottages on home
-  const featuredCottages = cottages?.slice(0, 2) || [];
+  const accommodationCottage = cottages?.find((cottage) => cottage.type === "Accommodation");
+  const sustainabilityCottage = cottages?.find((cottage) => cottage.type === "Sustainability");
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -233,25 +233,42 @@ This is not just a stay - it is a gentle return to nature, comfort, and quiet lu
 
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
             {cottagesLoading ? (
-              // Loading skeletons
-              [1, 2].map((i) => (
-                <div key={i} className="h-[500px] bg-gray-200 animate-pulse rounded-lg" />
-              ))
-            ) : (
-              featuredCottages.map((cottage, i) => (
-                <Link
-                  key={cottage.id}
-                  href={cottage.type === "Sustainability" ? "/about#sustainability" : "/accommodation"}
-                  className="block"
-                >
-                  <CottageCard
-                    cottage={cottage}
-                    index={i}
-                    descriptionClassName="text-justify"
-                  />
-                </Link>
-              ))
-            )}
+              <div className="h-[500px] bg-gray-200 animate-pulse rounded-lg" />
+            ) : accommodationCottage ? (
+              <Link href="/accommodation" className="block">
+                <CottageCard
+                  cottage={accommodationCottage}
+                  index={0}
+                  descriptionClassName="text-justify"
+                />
+              </Link>
+            ) : null}
+          </div>
+        </div>
+      </section>
+
+      {/* Sustainability Section */}
+      <section className="section-padding container-padding bg-background">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader
+            subtitle="SUSTAINABILITY"
+            title="Our Way of Life"
+            className="[&>h2]:text-primary [&>p]:text-center"
+            description="Rooted in the Land"
+          />
+
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+            {cottagesLoading ? (
+              <div className="h-[500px] bg-gray-200 animate-pulse rounded-lg" />
+            ) : sustainabilityCottage ? (
+              <Link href="/about#sustainability" className="block">
+                <CottageCard
+                  cottage={sustainabilityCottage}
+                  index={0}
+                  descriptionClassName="text-justify"
+                />
+              </Link>
+            ) : null}
           </div>
         </div>
       </section>
