@@ -94,14 +94,18 @@ export function CottageCard({
               </button>
 
               {/* Dots */}
-              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20">
                 {images.map((_, i) => (
                   <button
                     key={i}
                     onClick={(e) => goToImage(e, i)}
-                    className={`w-1.5 h-1.5 rounded-full transition-colors ${i === currentImageIndex ? 'bg-white scale-125' : 'bg-white/50'}`}
+                    className="w-6 h-6 min-w-6 min-h-6 rounded-full flex items-center justify-center touch-manipulation"
                     aria-label={`Go to cottage image ${i + 1}`}
-                  />
+                  >
+                    <span
+                      className={`w-1.5 h-1.5 rounded-full transition-colors ${i === currentImageIndex ? 'bg-white scale-125' : 'bg-white/50'}`}
+                    />
+                  </button>
                 ))}
               </div>
             </>

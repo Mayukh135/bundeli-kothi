@@ -189,14 +189,18 @@ export default function Home() {
                 &#8250;
               </button>
               {/* Dots */}
-              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20">
                 {birdImages.map((_, i) => (
                   <button
                     key={i}
                     onClick={(e) => goToBird(e, i)}
-                    className={`w-1.5 h-1.5 rounded-full transition-all ${i === birdIndex ? 'bg-white scale-125' : 'bg-white/50'}`}
+                    className="w-6 h-6 min-w-6 min-h-6 rounded-full flex items-center justify-center touch-manipulation"
                     aria-label={`Go to bird image ${i + 1}`}
-                  />
+                  >
+                    <span
+                      className={`w-1.5 h-1.5 rounded-full transition-all ${i === birdIndex ? 'bg-white scale-125' : 'bg-white/50'}`}
+                    />
+                  </button>
                 ))}
               </div>
             </div>
@@ -338,11 +342,11 @@ This is not just a stay - it is a gentle return to nature, comfort, and quiet lu
           </div>
 
           <div className="mt-10 text-center">
-            <a href={googleReviewsUrl} target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white px-8 h-12">
+            <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white px-8 h-12">
+              <a href={googleReviewsUrl} target="_blank" rel="noopener noreferrer" className="min-w-6 min-h-6">
                 Read All Reviews on Google
-              </Button>
-            </a>
+              </a>
+            </Button>
           </div>
         </div>
       </section>

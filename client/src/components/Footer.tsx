@@ -48,6 +48,7 @@ export function Footer() {
                 href="https://www.booking.com/hotel/in/bundeli-kothi-a-unique-farmstay.html?chal_t=1774461736996&force_referer=https%3A%2F%2Fwww.google.com%2F"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Book on Booking.com"
                 className="p-2 bg-foreground/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 <img src="/images/bookings.png" alt="Bookings" loading="lazy" decoding="async" className="w-5 h-5 object-contain" />
@@ -56,6 +57,7 @@ export function Footer() {
                 href="https://www.goibibo.com/hotels/bundeli-kothi-hotel-in-orchha-4948670906261073155/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Book on Goibibo"
                 className="p-2 bg-foreground/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 <img src="/images/goibibo.png" alt="Goibibo" loading="lazy" decoding="async" className="w-5 h-5 object-contain" />
@@ -64,6 +66,7 @@ export function Footer() {
                 href="https://www.makemytrip.com/hotels/bundeli_kothi-details-orchha.html"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Book on MakeMyTrip"
                 className="p-2 bg-foreground/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 <img src="/images/makemytrip.png" alt="MakeMyTrip" loading="lazy" decoding="async" className="w-5 h-5 object-contain" />
@@ -143,7 +146,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-foreground/10 flex justify-center items-center text-sm text-foreground/50 text-center">
+        <div className="pt-8 border-t border-foreground/10 flex justify-center items-center text-sm text-foreground/70 text-center">
           <p>Copyright © 2026 Design &amp; Developed By Klient Boost.</p>
         </div>
       </div>
