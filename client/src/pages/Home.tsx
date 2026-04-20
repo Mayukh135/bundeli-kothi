@@ -20,6 +20,7 @@ export default function Home() {
   const { data: cottages, isLoading: cottagesLoading } = useCottages();
   const { data: testimonials, isLoading: testimonialsLoading } = useTestimonials();
   const googleReviewsUrl = "https://www.google.com/travel/search?q=google%20maps%20bundeli%20kothi&g2lb=4965990%2C72471280%2C72560029%2C72573224%2C72647020%2C72686036%2C72803964%2C72882230%2C72958624%2C73059275%2C73064764%2C121529349&hl=en-IN&gl=in&cs=1&ssta=1&ts=CAEaRwopEicyJTB4Mzk3Nzc5OTlkNzI4NmNkZDoweDQ0OWQ2YWI3OTI5MjQxZDQSGhIUCgcI6g8QCBgBEgcI6g8QCBgCGAEyAhAA&qs=CAEyE0Nnb0kxSVBKbFBuVzJzNUVFQUU4AkIJCdRBkpK3ap1EQgkJ1EGSkrdqnUQ&ap=ugEHcmV2aWV3cw&ictx=111&ved=0CAAQ5JsGahcKEwjIqsbvsP2TAxUAAAAAHQAAAAAQDg";
+  const reviewCards = testimonials ?? [];
 
   // Hero carousel state
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -309,27 +310,31 @@ This is not just a stay - it is a gentle return to nature, comfort, and quiet lu
             description="Stories from guests who found more than a stay at Bundeli Kothi."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {testimonialsLoading ? (
-              [1, 2].map((i) => (
-                <div key={i} className="h-56 bg-gray-200 animate-pulse rounded-lg" />
-              ))
-            ) : (
-              testimonials?.slice(0, 2).map((testimonial) => (
-                <div
-                  key={testimonial.id}
-                  className="bg-white rounded-lg border border-border/70 shadow-sm p-8 flex flex-col justify-between"
-                >
-                  <p className="text-muted-foreground text-justify leading-relaxed mb-6">
-                    "{testimonial.content}"
-                  </p>
-                  <div>
-                    <p className="font-serif text-lg text-foreground">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.location}</p>
-                  </div>
+          <div className="relative overflow-hidden">
+            <div className="reviews-marquee flex w-max gap-6 py-2">
+              {[0, 1].map((groupIndex) => (
+                <div key={groupIndex} className="flex gap-6 pr-6">
+                  {testimonialsLoading
+                    ? [1, 2].map((i) => (
+                        <div key={`${groupIndex}-${i}`} className="h-56 w-[320px] bg-gray-200 animate-pulse rounded-lg shrink-0" />
+                      ))
+                    : reviewCards.map((testimonial) => (
+                        <div
+                          key={`${groupIndex}-${testimonial.id}`}
+                          className="bg-white rounded-lg border border-border/70 shadow-sm p-8 flex flex-col justify-between w-[320px] md:w-[360px] shrink-0"
+                        >
+                          <p className="text-muted-foreground text-justify leading-relaxed mb-6">
+                            "{testimonial.content}"
+                          </p>
+                          <div>
+                            <p className="font-serif text-lg text-foreground">{testimonial.name}</p>
+                            <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+                          </div>
+                        </div>
+                      ))}
                 </div>
-              ))
-            )}
+              ))}
+            </div>
           </div>
 
           <div className="mt-10 text-center">

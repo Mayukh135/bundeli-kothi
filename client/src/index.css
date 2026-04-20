@@ -80,6 +80,28 @@
     text-wrap: balance;
   }
 
+  @keyframes reviews-marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .reviews-marquee {
+    animation: reviews-marquee 36s linear infinite;
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reviews-marquee {
+      animation: none;
+      transform: none;
+    }
+  }
+
   .book-now-motion {
     @apply transition-[transform,box-shadow,background-color,color] duration-300 ease-out will-change-transform;
   }
