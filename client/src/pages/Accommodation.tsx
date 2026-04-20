@@ -47,7 +47,7 @@ export default function Accommodation() {
       <section className="pt-36 md:pt-40 pb-10 container-padding">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-3xl md:text-5xl font-serif text-primary text-center mb-8 md:mb-10">
-            "Spacious, peaceful, and beautifully designed."/n - Guest from France
+            "Spacious, peaceful, and beautifully designed." - Guest from France
           </h1>
 
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">

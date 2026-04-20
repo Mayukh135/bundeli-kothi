@@ -1,7 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { SectionHeader } from "@/components/SectionHeader";
-import { CottageCard } from "@/components/CottageCard";
 import { InquiryForm } from "@/components/InquiryForm";
 import { useCottages, useTestimonials } from "@/hooks/use-content";
 import { Button } from "@/components/ui/button";
@@ -254,53 +253,81 @@ This is not just a stay - it is a gentle return to nature, comfort, and quiet lu
 
       {/* Featured Cottages */}
       <section className="section-padding bg-muted/50 container-padding">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeader
-            subtitle="Accommodation"
-            title="Comfort, Space & Quiet Luxury"
-            className="[&>h2]:text-primary [&>p]:text-center"
-            description='"Many of our guests arrive for a night and wish they had stayed longer"'
-          />
-
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            {cottagesLoading ? (
-              <div className="h-[500px] bg-gray-200 animate-pulse rounded-lg" />
-            ) : accommodationCottage ? (
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-14 items-center">
+          {cottagesLoading ? (
+            <>
+              <div className="h-[360px] md:h-[420px] bg-gray-200 animate-pulse rounded-lg" />
+              <div className="h-[260px] bg-gray-200 animate-pulse rounded-lg" />
+            </>
+          ) : accommodationCottage ? (
+            <>
               <Link href="/accommodation" className="block">
-                <CottageCard
-                  cottage={accommodationCottage}
-                  index={0}
-                  descriptionClassName="text-justify"
-                />
+                <div className="relative rounded-lg overflow-hidden shadow-xl border border-border/60">
+                  <img
+                    src={accommodationCottage.images?.[0] || accommodationCottage.imageUrl}
+                    alt="Accommodation at Bundeli Kothi"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-[320px] md:h-[420px] object-cover"
+                  />
+                </div>
               </Link>
-            ) : null}
-          </div>
+              <div>
+                <SectionHeader
+                  subtitle="Accommodation"
+                  title="Comfort, Space & Quiet Luxury"
+                  centered={false}
+                  className="mb-6 [&>h2]:text-primary [&>p]:text-justify"
+                  description={accommodationCottage.description}
+                />
+                <Link href="/accommodation">
+                  <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white px-8 h-12">
+                    Explore Accommodation
+                  </Button>
+                </Link>
+              </div>
+            </>
+          ) : null}
         </div>
       </section>
 
       {/* Sustainability Section */}
       <section className="section-padding container-padding bg-background">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeader
-            subtitle="SUSTAINABILITY"
-            title="Our Way of Life"
-            className="[&>h2]:text-primary [&>p]:text-center"
-            description="Rooted in the Land"
-          />
-
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            {cottagesLoading ? (
-              <div className="h-[500px] bg-gray-200 animate-pulse rounded-lg" />
-            ) : sustainabilityCottage ? (
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-14 items-center">
+          {cottagesLoading ? (
+            <>
+              <div className="h-[360px] md:h-[420px] bg-gray-200 animate-pulse rounded-lg" />
+              <div className="h-[260px] bg-gray-200 animate-pulse rounded-lg" />
+            </>
+          ) : sustainabilityCottage ? (
+            <>
               <Link href="/about#sustainability" className="block">
-                <CottageCard
-                  cottage={sustainabilityCottage}
-                  index={0}
-                  descriptionClassName="text-justify"
-                />
+                <div className="relative rounded-lg overflow-hidden shadow-xl border border-border/60">
+                  <img
+                    src={sustainabilityCottage.images?.[0] || sustainabilityCottage.imageUrl}
+                    alt="Sustainability at Bundeli Kothi"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-[320px] md:h-[420px] object-cover"
+                  />
+                </div>
               </Link>
-            ) : null}
-          </div>
+              <div>
+                <SectionHeader
+                  subtitle="SUSTAINABILITY"
+                  title="Our Way of Life"
+                  centered={false}
+                  className="mb-6 [&>h2]:text-primary [&>p]:text-justify"
+                  description={sustainabilityCottage.description}
+                />
+                <Link href="/about#sustainability">
+                  <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white px-8 h-12">
+                    Learn About Sustainability
+                  </Button>
+                </Link>
+              </div>
+            </>
+          ) : null}
         </div>
       </section>
 
