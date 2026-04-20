@@ -73,7 +73,7 @@ export const STATIC_COTTAGES = [
         name: "Accommodation",
         type: "Accommodation",
         description:
-            "Our elegantly designed accommodations at Bundeli Kothi offer a perfect blend of comfort and heritage charm. Each room is thoughtfully crafted to provide a serene retreat with modern amenities and breathtaking views of nature. Relax in a tranquil ambiance and wake up to the soothing sounds of birds and rustling leaves",
+            "With just 4 Rooms, each room at Bundeli Kothi is designed to feel private, unhurried, and deeply restful.\nSurrounded by gardens and open skies, you’ll wake to birdsong and end your day in complete stillness.\nBlending subtle heritage touches with modern comfort & amenities, these are spaces you’ll want to return to—not just sleep in.",
         price: 12000,
         capacity: 2,
         imageUrl: "/images/accommodation/accommodation-1.jpg",
@@ -90,7 +90,7 @@ export const STATIC_COTTAGES = [
         name: "Sustainability",
         type: "Sustainability",
         description:
-            "At Bundeli Kothi, sustainability is at our core. We harness solar power to reduce our carbon footprint. Eco-friendly products and organic farming practices promote a healthier environment. By hiring staff from local villages, we support the community and preserve traditional culture. Experience luxury with a conscience at Bundeli Kothi.",
+            "At Bundeli Kothi, sustainability isn’t a concept—it’s simply how we live.\n\nFrom the food we grow to the way we care for our land, every detail is guided by a quiet respect for nature.",
         price: 15000,
         capacity: 4,
         imageUrl: "/images/sustainability/sustainability-1.jpeg",
