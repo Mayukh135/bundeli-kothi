@@ -221,6 +221,30 @@ This is not just a stay - it is a gentle return to nature, comfort, and quiet lu
         </div>
       </section>
 
+      {/* Farm-to-Table Experience */}
+      <section className="section-padding container-padding bg-background">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          <div className="relative rounded-lg overflow-hidden shadow-xl border border-border/60">
+            <img
+              src="/images/farm-to-plate/farm-to-plate-1.jpg"
+              alt="Farm-to-Table dining at Bundeli Kothi"
+              loading="lazy"
+              decoding="async"
+              className="w-full h-[320px] md:h-[420px] object-cover"
+            />
+          </div>
+          <div>
+            <SectionHeader
+              subtitle="Experience"
+              title="Farm-to-Table Dining"
+              centered={false}
+              className="mb-0 [&>h2]:text-primary [&>p]:text-justify"
+              description={`Much of what you eat here is grown on the land itself. Fresh, seasonal, and simple—meals at Bundeli Kothi are not just nourishing, but memorable. Long breakfasts and slow dinners often become the highlight of the stay.`}
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Featured Cottages */}
       <section className="section-padding bg-muted/50 container-padding">
         <div className="max-w-7xl mx-auto">
