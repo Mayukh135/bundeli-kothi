@@ -228,7 +228,7 @@ This is not just a stay - it is a gentle return to nature, comfort, and quiet lu
       </section>
 
       {/* Farm-to-Table Experience */}
-      <section className="section-padding container-padding bg-background">
+      <section className="section-padding container-padding bg-muted/50">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           <div>
             <SectionHeader
@@ -296,22 +296,11 @@ This is not just a stay - it is a gentle return to nature, comfort, and quiet lu
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-14 items-center">
           {cottagesLoading ? (
             <>
-              <div className="h-[360px] md:h-[420px] bg-gray-200 animate-pulse rounded-lg" />
               <div className="h-[260px] bg-gray-200 animate-pulse rounded-lg" />
+              <div className="h-[360px] md:h-[420px] bg-gray-200 animate-pulse rounded-lg" />
             </>
           ) : sustainabilityCottage ? (
             <>
-              <Link href="/about#sustainability" className="block">
-                <div className="relative rounded-lg overflow-hidden shadow-xl border border-border/60">
-                  <img
-                    src={sustainabilityCottage.images?.[0] || sustainabilityCottage.imageUrl}
-                    alt="Sustainability at Bundeli Kothi"
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-[320px] md:h-[420px] object-cover"
-                  />
-                </div>
-              </Link>
               <div>
                 <SectionHeader
                   subtitle="SUSTAINABILITY"
@@ -326,6 +315,17 @@ This is not just a stay - it is a gentle return to nature, comfort, and quiet lu
                   </Button>
                 </Link>
               </div>
+              <Link href="/about#sustainability" className="block">
+                <div className="relative rounded-lg overflow-hidden shadow-xl border border-border/60">
+                  <img
+                    src={sustainabilityCottage.images?.[0] || sustainabilityCottage.imageUrl}
+                    alt="Sustainability at Bundeli Kothi"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-[320px] md:h-[420px] object-cover"
+                  />
+                </div>
+              </Link>
             </>
           ) : null}
         </div>

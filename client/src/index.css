@@ -11,8 +11,8 @@
   --foreground: 0 0% 11%;
   /* #1C1C1C - deep charcoal */
 
-  --primary: 34 68% 32%;
-  /* Deeper saffron for stronger text/border contrast */
+  --primary: 37 66% 48%;
+  /* #CD8E2A - warm saffron */
   --primary-foreground: 38 44% 96%;
 
   --secondary: 40 28% 87%;
@@ -20,10 +20,10 @@
   --secondary-foreground: 0 0% 11%;
 
   --muted: 38 30% 91%;
-  --muted-foreground: 30 14% 26%;
+  --muted-foreground: 30 10% 35%;
 
-  --accent: 28 40% 32%;
-  /* Deeper terracotta for small text contrast */
+  --accent: 30 34% 49%;
+  /* #A67C52 - warm terracotta */
   --accent-foreground: 38 44% 96%;
 
   --highlight: 39 38% 62%;

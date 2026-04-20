@@ -108,7 +108,7 @@ export function Navigation() {
                   : "bg-background text-primary hover:bg-background/90"
               )}
             >
-              Book Now
+              Plan Your Stay
             </Button>
           </nav>
 

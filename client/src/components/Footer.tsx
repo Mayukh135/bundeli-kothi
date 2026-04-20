@@ -146,7 +146,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-foreground/10 flex justify-center items-center text-sm text-foreground/70 text-center">
+        <div className="pt-8 border-t border-foreground/10 flex justify-center items-center text-sm text-foreground/50 text-center">
           <p>Copyright © 2026 Design &amp; Developed By Klient Boost.</p>
         </div>
       </div>
