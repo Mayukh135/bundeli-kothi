@@ -380,16 +380,6 @@ This is not just a stay - it is a gentle return to nature, comfort, and quiet lu
 
       {/* Experience Highlights - Parallax-ish */}
       <section className="relative py-20 md:py-24 overflow-hidden bg-muted/20">
-        <div className="absolute inset-0 z-0 opacity-10">
-          {/* Heritage-themed background texture */}
-          <img
-            src="https://images.unsplash.com/photo-1505553877995-1f92e850b297?q=80&w=2692&auto=format&fit=crop"
-            alt="Orchha heritage landscape"
-            loading="lazy"
-            decoding="async"
-            className="w-full h-full object-cover"
-          />
-        </div>
         <div className="relative z-10 container-padding max-w-7xl mx-auto text-center">
           <SectionHeader
             subtitle="Explore Orchha"
