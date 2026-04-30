@@ -47,13 +47,13 @@ export default function Accommodation() {
       <section className="pt-36 md:pt-40 pb-10 container-padding">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-3xl md:text-5xl font-serif text-center mb-8 md:mb-10">
-            <figure className="mx-auto max-w-3xl">
+            <figure className="mx-auto max-w-2xl">
               <blockquote className="border-l-4 border-border/30 pl-6 italic">
-                <p className="text-2xl md:text-4xl leading-tight text-foreground/90">
+                <p className="font-serif text-3xl md:text-4xl leading-tight text-foreground">
                   “Spacious, peaceful, and beautifully designed.”
                 </p>
               </blockquote>
-              <figcaption className="mt-3 text-sm md:text-base font-medium text-muted-foreground text-right">
+              <figcaption className="mt-3 text-sm md:text-base font-serif font-medium text-muted-foreground text-right">
                 — Guest from France
               </figcaption>
             </figure>
