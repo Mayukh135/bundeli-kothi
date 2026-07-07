@@ -48,7 +48,7 @@ export default function Accommodation() {
         <div className="max-w-7xl mx-auto">
           <h1 className="text-3xl md:text-5xl font-serif text-center mb-8 md:mb-10">
             <figure className="mx-auto max-w-2xl">
-              <blockquote className="border-l-4 border-border/30 pl-6 italic">
+              <blockquote className="italic">
                 <p className="font-serif text-3xl md:text-4xl leading-tight text-foreground">
                   “Spacious, peaceful, and beautifully designed.”
                 </p>
@@ -87,7 +87,7 @@ export default function Accommodation() {
           </div>
 
           <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-5">
+            <h2 className="text-3xl md:text-4xl font-serif text-primary mb-5">
               Your Stay at Bundeli Kothi
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-5">
