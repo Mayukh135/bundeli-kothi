@@ -385,7 +385,7 @@ This is not just a stay - it is a gentle return to nature, comfort, and quiet lu
             subtitle="Explore Orchha"
             title="Adventures in Orchha"
             description="Discover Orchha through royal palaces, sacred temples, river adventures, and rich natural landscapes."
-            className="mx-auto [&>h2]:text-primary [&>p]:text-justify"
+            className="mx-auto [&>h2]:text-primary [&>p]:text-center"
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             {[
@@ -431,7 +431,7 @@ This is not just a stay - it is a gentle return to nature, comfort, and quiet lu
           <SectionHeader
             subtitle="Contact Us"
             title="Begin Your Journey"
-            className="[&>h2]:text-primary [&>p]:text-justify"
+            className="[&>h2]:text-primary [&>p]:text-center"
             description="Ready to experience the untamed beauty of Orchha? Send us an inquiry and we will curate your perfect stay."
           />
           <InquiryForm />
