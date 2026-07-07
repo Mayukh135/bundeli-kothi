@@ -6,13 +6,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 const galleryImagePaths = [
+  "/images/gallery/DJI_0745-01-Copy-scaled-1.jpg",
+  "/images/gallery/FullSizeRender-scaled-1.jpg",
+  "/images/gallery/dji_fly_20240417_181336_828_1713357828238_photo_optimized-01-scaled-1.jpeg",
   "/images/gallery/20240106_124133-01-1-scaled-1.jpeg",
   "/images/gallery/20240113_175743-scaled-1.jpg",
   "/images/gallery/20240131_114816-1-scaled-1.jpg",
   "/images/gallery/20250121_173135-scaled-1.jpg",
   "/images/gallery/20250124_093628-scaled-1.jpg",
-  "/images/gallery/DJI_0745-01-Copy-scaled-1.jpg",
-  "/images/gallery/FullSizeRender-scaled-1.jpg",
   "/images/gallery/IMG_0687-scaled-1.jpg",
   "/images/gallery/IMG_0767-1-scaled-1.jpg",
   "/images/gallery/IMG_0797-scaled-1.jpg",
@@ -41,7 +42,6 @@ const galleryImagePaths = [
   "/images/gallery/IMG_7426-scaled-1.jpg",
   "/images/gallery/IMG_8689-scaled-1.jpg",
   "/images/gallery/IMG_8709-scaled-1.jpg",
-  "/images/gallery/dji_fly_20240417_181336_828_1713357828238_photo_optimized-01-scaled-1.jpeg",
 ] as const;
 
 export default function Gallery() {
