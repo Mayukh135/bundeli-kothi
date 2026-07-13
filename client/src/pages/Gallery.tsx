@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 const galleryImagePaths = [
+  "/images/gallery/IMG_8709-scaled-1.jpg",
   "/images/gallery/dji_fly_20240417_181336_828_1713357828238_photo_optimized-01-scaled-1.jpeg",
   "/images/gallery/DJI_0745-01-Copy-scaled-1.jpg",
   "/images/gallery/IMG_1466-scaled-1.jpg",
@@ -27,6 +28,7 @@ const galleryImagePaths = [
   "/images/gallery/IMG_1311-scaled-1.jpg",
   "/images/gallery/IMG_1384-1-scaled-1.jpg",
   "/images/gallery/IMG_1410-scaled-1.jpg",
+  "/images/gallery/IMG_1420-scaled-1.jpg",
   "/images/gallery/IMG_1760-scaled-1.jpg",
   "/images/gallery/IMG_1787-scaled-1.jpg",
   "/images/gallery/IMG_20220311_180612_1-01.jpeg",
@@ -40,7 +42,6 @@ const galleryImagePaths = [
   "/images/gallery/IMG_7422-scaled-1.jpg",
   "/images/gallery/IMG_7426-scaled-1.jpg",
   "/images/gallery/IMG_8689-scaled-1.jpg",
-  "/images/gallery/IMG_8709-scaled-1.jpg",
 ] as const;
 
 export default function Gallery() {
