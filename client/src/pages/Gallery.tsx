@@ -23,6 +23,10 @@ const galleryImagePaths = [
   "/images/gallery/IMG_0687-scaled-1.jpg",
   "/images/gallery/IMG_0767-1-scaled-1.jpg",
   "/images/gallery/IMG_0991-scaled-1.jpg",
+  "/images/gallery/IMG_1787-scaled-1.jpg",
+  "/images/gallery/IMG_20220311_180612_1-01.jpeg",
+  "/images/gallery/IMG_2055-scaled-1.jpg",
+  "/images/gallery/IMG_6776-1-scaled-1.jpg",
   "/images/gallery/20240106_124133-01-1-scaled-1.jpeg",
   "/images/gallery/20240113_175743-scaled-1.jpg",
   "/images/gallery/20240131_114816-1-scaled-1.jpg",
@@ -38,10 +42,6 @@ const galleryImagePaths = [
   "/images/gallery/IMG_1410-scaled-1.jpg",
   "/images/gallery/IMG_1420-scaled-1.jpg",
   "/images/gallery/IMG_1760-scaled-1.jpg",
-  "/images/gallery/IMG_1787-scaled-1.jpg",
-  "/images/gallery/IMG_20220311_180612_1-01.jpeg",
-  "/images/gallery/IMG_2055-scaled-1.jpg",
-  "/images/gallery/IMG_6776-1-scaled-1.jpg",
 ] as const;
 
 export default function Gallery() {
