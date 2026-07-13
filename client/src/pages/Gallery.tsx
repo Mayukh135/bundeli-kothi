@@ -19,7 +19,7 @@ const galleryImagePaths = [
   "/images/gallery/IMG_7341-scaled-1.jpg",
   "/images/gallery/IMG_6896-scaled-1.jpg",
   "/images/gallery/IMG_1292-scaled-1.jpg",
-  "/images/gallery/20250124_093628-scaled-1.jpg",
+  "/images/gallery/IMG_1311-scaled-1.jpg",
   "/images/gallery/IMG_0687-scaled-1.jpg",
   "/images/gallery/IMG_0767-1-scaled-1.jpg",
   "/images/gallery/IMG_0991-scaled-1.jpg",
