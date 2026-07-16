@@ -301,25 +301,17 @@ export default function Gallery() {
     });
   }, [imageCount]);
 
-    "/images/gallery/20250121_173135-scaled-1.jpg",
-    "/images/gallery/20250124_093628-scaled-1.jpg",
-    "/images/gallery/IMG_0767-1-scaled-1.jpg",
-    "/images/gallery/IMG_0991-scaled-1.jpg",
+  const goNext = useCallback(() => {
+    setActiveIndex((current) => {
+      if (current === null) return current;
+      return (current + 1) % imageCount;
     });
   }, [imageCount]);
 
   useEffect(() => {
     if (activeIndex === null) return;
-    "/images/gallery/IMG_6776-1-scaled-1.jpg",
-    "/images/gallery/IMG_7071-scaled-1.jpg",
-    "/images/gallery/IMG_7332-01-scaled-1.jpeg",
-    "/images/gallery/IMG_7341-scaled-1.jpg",
-    "/images/gallery/IMG_7354-scaled-1.jpg",
-    "/images/gallery/IMG_7422-scaled-1.jpg",
-    "/images/gallery/IMG_7426-scaled-1.jpg",
-    "/images/gallery/IMG_8689-scaled-1.jpg",
-    "/images/gallery/IMG_8709-scaled-1.jpg",
-    "/images/gallery/dji_fly_20240417_181336_828_1713357828238_photo_optimized-01-scaled-1.jpeg",
+
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         closeLightbox();
       }
